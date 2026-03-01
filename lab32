@@ -1,0 +1,15 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+from google.colab import files
+uploaded = files.upload()
+
+df = pd.read_csv("day32_relationships.csv")
+
+sns.scatterplot(data=df, x="feature1", y="outcome", hue="segment", style="priority")
+plt.title("Scatterplot")
+plt.show()
+
+sns.relplot(data=df, x="feature1", y="outcome", hue="priority", col="segment")
+plt.show()
